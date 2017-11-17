@@ -4,6 +4,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -90,7 +92,15 @@ public class Liga_Española extends javax.swing.JFrame {
         numerocopas_equipo1 = new javax.swing.JTextField();
         estadio_equipo1 = new javax.swing.JTextField();
         modificar_equipos = new javax.swing.JButton();
-        jd_eliminar = new javax.swing.JDialog();
+        jd_arbol = new javax.swing.JDialog();
+        jPanel8 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jl_arbol_equipos = new javax.swing.JList<>();
+        agregar_arbol = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jt_equipos_jugadores = new javax.swing.JTree();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jl_arbol_jugadores = new javax.swing.JList<>();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jd_modificar_jugadores = new javax.swing.JDialog();
@@ -111,6 +121,9 @@ public class Liga_Española extends javax.swing.JFrame {
         tecnica_jugador1 = new javax.swing.JTextField();
         resistencia_jugador1 = new javax.swing.JTextField();
         modificar_Jugadores = new javax.swing.JButton();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        ver_datos = new javax.swing.JMenuItem();
+        sacar_equipo = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -585,15 +598,75 @@ public class Liga_Española extends javax.swing.JFrame {
             .addComponent(jTabbedPane2)
         );
 
-        javax.swing.GroupLayout jd_eliminarLayout = new javax.swing.GroupLayout(jd_eliminar.getContentPane());
-        jd_eliminar.getContentPane().setLayout(jd_eliminarLayout);
-        jd_eliminarLayout.setHorizontalGroup(
-            jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jPanel8.setBackground(new java.awt.Color(255, 255, 204));
+
+        jl_arbol_equipos.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(jl_arbol_equipos);
+
+        agregar_arbol.setText("Agregar al Arbol");
+        agregar_arbol.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                agregar_arbolMouseClicked(evt);
+            }
+        });
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("La Liga Española");
+        jt_equipos_jugadores.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_equipos_jugadores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_equipos_jugadoresMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jt_equipos_jugadores);
+
+        jl_arbol_jugadores.setModel(new DefaultListModel());
+        jScrollPane4.setViewportView(jl_arbol_jugadores);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(327, 327, 327)
+                                .addComponent(agregar_arbol, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(161, 161, 161)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jd_eliminarLayout.setVerticalGroup(
-            jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(agregar_arbol, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jd_arbolLayout = new javax.swing.GroupLayout(jd_arbol.getContentPane());
+        jd_arbol.getContentPane().setLayout(jd_arbolLayout);
+        jd_arbolLayout.setHorizontalGroup(
+            jd_arbolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jd_arbolLayout.setVerticalGroup(
+            jd_arbolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel10.setText("jLabel10");
@@ -731,6 +804,12 @@ public class Liga_Española extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
+        ver_datos.setText("Ver Datos");
+        jPopupMenu1.add(ver_datos);
+
+        sacar_equipo.setText("Sacar del Equipo");
+        jPopupMenu1.add(sacar_equipo);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ricky\\OneDrive\\Imágenes\\la-liga.jpg")); // NOI18N
@@ -784,10 +863,10 @@ public class Liga_Española extends javax.swing.JFrame {
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        jd_eliminar.setModal(true);
-        jd_eliminar.pack();
-        jd_eliminar.setLocationRelativeTo(this);
-        jd_eliminar.setVisible(true);
+        jd_arbol.setModal(true);
+        jd_arbol.pack();
+        jd_arbol.setLocationRelativeTo(this);
+        jd_arbol.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void agregar_equiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregar_equiposMouseClicked
@@ -806,7 +885,10 @@ public class Liga_Española extends javax.swing.JFrame {
             lista.add(x);
 
             DefaultListModel modelo = (DefaultListModel) jl_equipos.getModel();
+            DefaultListModel model = (DefaultListModel) jl_arbol_equipos.getModel();
             modelo.addElement(new Equipos(nombre_equipo.getText(), Double.parseDouble(presupuesto_equipo.getText()),
+                    Integer.parseInt(numerocopas_equipo.getText()), estadio_equipo.getText()));
+            model.addElement(new Equipos(nombre_equipo.getText(), Double.parseDouble(presupuesto_equipo.getText()),
                     Integer.parseInt(numerocopas_equipo.getText()), estadio_equipo.getText()));
 
             nombre_equipo.setText("");
@@ -844,7 +926,10 @@ public class Liga_Española extends javax.swing.JFrame {
             lista2.add(j);
 
             DefaultListModel modelo = (DefaultListModel) jl_jugadores.getModel();
+            DefaultListModel model = (DefaultListModel) jl_arbol_jugadores.getModel();
             modelo.addElement(new Jugadores(nombre_jugador.getText(), Double.parseDouble(precio_jugador.getText()), posicion_jugador.getText(),
+                    disponibilidad_jugador.getText(), Integer.parseInt(habilidad_jugador.getText()), Integer.parseInt(tecnica_jugador.getText()), Integer.parseInt(resistencia_jugador.getText())));
+            model.addElement(new Jugadores(nombre_jugador.getText(), Double.parseDouble(precio_jugador.getText()), posicion_jugador.getText(),
                     disponibilidad_jugador.getText(), Integer.parseInt(habilidad_jugador.getText()), Integer.parseInt(tecnica_jugador.getText()), Integer.parseInt(resistencia_jugador.getText())));
 
             nombre_jugador.setText("");
@@ -960,6 +1045,59 @@ public class Liga_Española extends javax.swing.JFrame {
         modelo.remove(jl_jugadores.getSelectedIndex());
     }//GEN-LAST:event_eliminar_jugadoresMouseClicked
 
+    private void agregar_arbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregar_arbolMouseClicked
+        if (jl_arbol_equipos.getSelectedIndex() == -1 || jl_arbol_jugadores.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(this, "No ha seleccionado nada");
+            return;
+        }
+        int i1 = jl_arbol_equipos.getSelectedIndex();
+        int i2 = jl_arbol_jugadores.getSelectedIndex();
+        DefaultListModel modelo = (DefaultListModel) jl_arbol_equipos.getModel();
+        Equipos e = (Equipos) modelo.getElementAt(i1);
+        DefaultListModel model = (DefaultListModel) jl_arbol_jugadores.getModel();
+        Jugadores j = (Jugadores) model.getElementAt(i2);
+        
+        DefaultTreeModel m = (DefaultTreeModel) jt_equipos_jugadores.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+        DefaultMutableTreeNode nodo_equipo;
+        DefaultMutableTreeNode nodo_jugador;
+        
+        nodo_equipo = new DefaultMutableTreeNode(e);
+        nodo_jugador = new DefaultMutableTreeNode(j);
+        
+        raiz.add(nodo_equipo);
+        nodo_equipo.add(nodo_jugador);
+        m.reload();
+       
+//        DefaultMutableTreeNode equipo;
+//        equipo = new DefaultMutableTreeNode(new Equipos(nombre_equipo.getText(), Double.parseDouble(presupuesto_equipo.getText()),
+//                Integer.parseInt(numerocopas_equipo.getText()), estadio_equipo.getText()));
+//        DefaultMutableTreeNode jugador;
+//        jugador = new DefaultMutableTreeNode(new Jugadores(nombre_jugador.getText(), Double.parseDouble(precio_jugador.getText()), posicion_jugador.getText(),
+//                    disponibilidad_jugador.getText(), Integer.parseInt(habilidad_jugador.getText()), Integer.parseInt(tecnica_jugador.getText()), Integer.parseInt(resistencia_jugador.getText())));
+//        nodo_equipo.add(equipo);
+//        equipo.add(jugador);
+//        raiz.add(nodo_equipo);
+//        m.reload();
+    }//GEN-LAST:event_agregar_arbolMouseClicked
+
+    private void jt_equipos_jugadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_equipos_jugadoresMouseClicked
+        if (evt.isMetaDown()) {
+            int row = jt_equipos_jugadores.getClosestRowForLocation(evt.getX(), evt.getY());
+            jt_equipos_jugadores.setSelectionRow(row);
+            
+            Object v1 = jt_equipos_jugadores.getSelectionPath().getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+            
+            if (nodo_seleccionado.getUserObject() instanceof Jugadores) {
+                jugador_seleccionado = (Jugadores) nodo_seleccionado.getUserObject();
+                jPopupMenu1.show(evt.getComponent(), evt.getX(), evt.getY());
+
+            }
+            
+        }
+    }//GEN-LAST:event_jt_equipos_jugadoresMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -997,6 +1135,7 @@ public class Liga_Española extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Agregar;
+    private javax.swing.JButton agregar_arbol;
     private javax.swing.JButton agregar_equipos;
     private javax.swing.JButton agregar_jugadores;
     private javax.swing.JTextField disponibilidad_jugador;
@@ -1050,16 +1189,24 @@ public class Liga_Española extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JDialog jd_agregar;
-    private javax.swing.JDialog jd_eliminar;
+    private javax.swing.JDialog jd_arbol;
     private javax.swing.JDialog jd_modificar_equipos;
     private javax.swing.JDialog jd_modificar_jugadores;
+    private javax.swing.JList<Equipos> jl_arbol_equipos;
+    private javax.swing.JList<Jugadores> jl_arbol_jugadores;
     private javax.swing.JList<Equipos> jl_equipos;
     private javax.swing.JList<Jugadores> jl_jugadores;
+    private javax.swing.JTree jt_equipos_jugadores;
     private javax.swing.JButton jugadores_modificar;
     private javax.swing.JButton modificar_Jugadores;
     private javax.swing.JButton modificar_equipos;
@@ -1077,9 +1224,14 @@ public class Liga_Española extends javax.swing.JFrame {
     private javax.swing.JTextField presupuesto_equipo1;
     private javax.swing.JTextField resistencia_jugador;
     private javax.swing.JTextField resistencia_jugador1;
+    private javax.swing.JMenuItem sacar_equipo;
     private javax.swing.JTextField tecnica_jugador;
     private javax.swing.JTextField tecnica_jugador1;
+    private javax.swing.JMenuItem ver_datos;
     // End of variables declaration//GEN-END:variables
 ArrayList<Equipos> lista = new ArrayList();
     ArrayList<Jugadores> lista2 = new ArrayList();
+    DefaultMutableTreeNode nodo_seleccionado;
+    Equipos equipo_seleccionado;
+    Jugadores jugador_seleccionado;
 }
